@@ -1,5 +1,5 @@
 # PyQt5_Keyboard
-keyboard and a class derived from QLineEdit optimized for touchscreen, made initialy for a GNNS project I had at my school (ENSG). 
+keyboard and a class derived from QLineEdit optimized for touchscreen, made initialy for a GNNS project I had at my school (ENSG 🇫🇷). 
 
 Réalisation originale: 1er Aout 2018
 
