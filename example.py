@@ -4,28 +4,8 @@ from PyQt5.QtWidgets import QMainWindow, QWidget, QLabel, QLineEdit
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtCore import QSize
 
-import keyboard2 as virtual_keyboard
 
-class MyLineEdit(QLineEdit):
-    def __init__(self,*args, **kwargs):
-        try:
-            super(MyLineEdit, self).__init__(*args, **kwargs)
-       
-            self.keyboard = virtual_keyboard.VirtualKeyboard()
-            self.keyboard.sigInputString.connect(self.updateTXT)
-            self.content = self.text()
-
-        except Exception as e:
-            print(e)
-    def focusInEvent(self, event):
-        print('focus in event')
-        # do custom stuff
-        self.parent().setFocus()
-        self.keyboard.show()
-        super(MyLineEdit, self).focusInEvent(event)
-    def updateTXT(self,text):
-        self.content+=text
-        self.setText(self.content)
+from LineEdit import KLineEdit
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -35,8 +15,8 @@ class MainWindow(QMainWindow):
 
         self.nameLabel = QLabel(self)
         self.nameLabel.setText('Name:')
-        self.line1 = MyLineEdit(self)
-        self.line2 = MyLineEdit(self)
+        self.line1 = KLineEdit(self)
+        self.line2 = KLineEdit(self)
 
         self.line1.move(80, 20)
         self.line1.resize(200, 32)
